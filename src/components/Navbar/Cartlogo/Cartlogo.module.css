@@ -1,0 +1,19 @@
+.container {
+  position: relative;
+}
+.cart__icon {
+  font-size: 3rem;
+}
+
+.cart__number {
+  position: absolute;
+  background-color: #e71247;
+  display: grid;
+  place-content: center;
+  top: -10px;
+  right: -5px;
+  height: 2rem;
+  width: 2rem;
+  color: #fff;
+  border-radius: 50%;
+}

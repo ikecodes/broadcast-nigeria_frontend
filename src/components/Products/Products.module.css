@@ -1,0 +1,12 @@
+.products {
+  padding: 15rem 0;
+}
+
+.product__center {
+  padding: 0 3rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(30rem, 1fr)) [auto-fit];
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 3rem 1rem;
+}
