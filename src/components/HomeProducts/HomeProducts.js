@@ -1,20 +1,20 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Product from './Product/Product';
-import classes from './Products.module.css';
 
-const Products = () => {
+import classes from './HomeProducts.module.css';
+const HomeProducts = () => {
   const products = useSelector((state) => state.items.products);
-
   return (
-    <section className={classes.products}>
-      <div className={classes.product__center}>
+    <>
+      <h1 className={classes.head}>top products</h1>
+      <div className={classes.homeproducts_container}>
         {products.map((product) => (
           <Product key={product.id} product={product} />
         ))}
       </div>
-    </section>
+    </>
   );
 };
 
-export default Products;
+export default HomeProducts;

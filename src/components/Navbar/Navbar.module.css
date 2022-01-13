@@ -1,12 +1,52 @@
+.searcher {
+  position: absolute;
+  top: 0;
+  height: 0;
+  width: 100%;
+  background-color: #f6f6f6;
+  z-index: 100000;
+  text-align: center;
+  transform-origin: left;
+  transition: all 0.3s ease-in;
+}
+.showSearcher {
+  height: 100vh;
+}
+.search_input {
+  background-color: transparent;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  width: 80%;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #999999;
+}
+
+.search_background {
+  display: inline-block;
+  width: 70%;
+  visibility: hidden;
+  border-bottom: 1px solid #999999;
+  transition: all 0.3s ease-in;
+  transform-origin: right;
+}
+.showBackground {
+  visibility: visible;
+}
+.search_icon {
+  color: #999999;
+  cursor: pointer;
+}
 .nav {
-  position: fixed;
+  /* position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100%; */
   padding: 1.5rem 0;
   line-height: 1rem;
   background-color: #f6f6f6;
-  /* -webkit-box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%); */
   box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%);
 }
 
@@ -21,12 +61,28 @@
   -ms-flex-align: center;
   align-items: center;
   height: 100%;
+  flex-wrap: wrap;
 }
 
 .container {
   max-width: 114rem;
   margin: 0 auto;
   padding: 0 1.6rem;
+}
+.nav_menu_container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav_item {
+  text-decoration: none;
+}
+.nav_item h4 {
+  font-weight: 900;
+  margin: 0 1.5rem;
+  font-size: 2rem;
+  text-transform: capitalize;
+  color: #000;
 }
 .nav__logo {
   font-size: 2rem;
@@ -42,4 +98,10 @@ img {
 }
 a {
   color: black;
+}
+
+@media only screen and (max-width: 600px) {
+  .nav_menu_container {
+    margin-top: 2rem;
+  }
 }

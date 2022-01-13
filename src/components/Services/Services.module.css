@@ -1,0 +1,9 @@
+.services_container {
+  padding: 7rem;
+  display: -ms-grid;
+  display: grid;
+  /* justify-items: cen; */
+  -ms-grid-columns: (minmax(30rem, 1fr)) [auto-fit];
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 10rem;
+}

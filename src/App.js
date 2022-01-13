@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getProducts } from './actions/items';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import { Navbar, Products, Cart } from './components';
+import { Home, Shop, Cart } from './pages';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -13,17 +13,11 @@ const App = () => {
 
   return (
     <Router>
-      <>
-        <Navbar />
-        <Switch>
-          <Route exact path='/'>
-            <Products />
-          </Route>
-          <Route>
-            <Cart exact path='/cart' />
-          </Route>
-        </Switch>
-      </>
+      <Routes>
+        <Route path='/' exact element={<Home />} />
+        <Route path='/shop' exact element={<Shop />} />
+        <Route path='/Cart' exact element={<Cart />} />
+      </Routes>
     </Router>
   );
 };

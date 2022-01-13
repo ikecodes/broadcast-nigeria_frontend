@@ -1,0 +1,22 @@
+.footer_container {
+  margin: 7rem 0 0 0;
+  height: 30rem;
+  display: flex;
+  padding: 5rem;
+  flex-wrap: wrap;
+  gap: 5rem;
+  background-color: #000;
+}
+.footer_container img {
+  width: auto;
+  height: 15rem;
+}
+.footer_container ul {
+  color: #fff;
+  list-style: none;
+}
+.footer_container li {
+  font-size: 2rem;
+  text-transform: capitalize;
+  margin: 2rem 0;
+}

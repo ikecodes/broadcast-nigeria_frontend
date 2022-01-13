@@ -1,0 +1,31 @@
+.homeproducts_container {
+  padding: 5rem 0 7rem 0;
+  display: flex;
+  overflow-x: scroll;
+  gap: 5rem;
+}
+
+.homeproducts_container::-webkit-scrollbar {
+  width: 1px;
+}
+
+.homeproducts_container::-webkit-scrollbar-track {
+  box-shadow: 0 1.5rem 15rem rgb(0 0 0 / 15%);
+}
+
+.homeproducts_container::-webkit-scrollbar-thumb {
+  background-color: #d6d6d6;
+  outline: 0.5px solid #f6f6f6;
+  border-radius: 10px;
+  width: 2px;
+  height: 2px;
+}
+
+.head {
+  margin-top: 5rem;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 5rem;
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 2rem;
+}

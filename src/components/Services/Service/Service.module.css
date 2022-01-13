@@ -1,0 +1,19 @@
+.service_box {
+  background: #f6f6f6;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%);
+  display: flex;
+  align-items: center;
+}
+.service_box div {
+  margin-left: 2rem;
+}
+.service_box h1 {
+  text-transform: capitalize;
+}
+.service_box p {
+  font-size: 1.5rem;
+  color: #999;
+  text-transform: capitalize;
+}
