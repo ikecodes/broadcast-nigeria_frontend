@@ -23,13 +23,7 @@
   outline: none;
   border-bottom: 1px solid #999;
   background-color: #f9fafd;
-}
-.contactform_textarea {
-  padding: 1.5rem 0;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #999;
-  background-color: #f9fafd;
+  border-radius: 0px;
 }
 
 .btn {
