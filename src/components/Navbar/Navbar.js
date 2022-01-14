@@ -36,18 +36,16 @@ const Navbar = () => {
               <img src={Logo2} alt='Brand Logo' className={classes.nav__img} />
             </div>
           </Link>
-          <div className={classes.nav_menu_container}>
-            <Link to='/shop' className={classes.nav_item}>
-              <h4>shop</h4>
-            </Link>
-            <Link to='/about' className={classes.nav_item}>
-              <h4>about us</h4>
-            </Link>
-            <Link to='/contact' className={classes.nav_item}>
-              <h4>contact</h4>
-            </Link>
-          </div>
+
           <div className='d-flex align-items-center gap-4'>
+            <div className={classes.nav_menu_container}>
+              <Link to='/shop' className={classes.nav_item}>
+                <h4>shop</h4>
+              </Link>
+              <Link to='/contact' className={classes.nav_item}>
+                <h4>contact</h4>
+              </Link>
+            </div>
             <FaSearch
               color='#fcb700'
               size={20}
