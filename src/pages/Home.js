@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar/Navbar';
 import Services from '../components/Services/Services';
 import Footer from '../components/Footer/Footer';
 import Welcome from '../components/Welcome/Welcome';
+import Brands from '../components/Brands/Brands';
 const Home = () => {
   return (
     <div>
@@ -13,6 +14,7 @@ const Home = () => {
       <Welcome />
       <Services />
       <HomeProducts />
+      <Brands />
       <Footer />
     </div>
   );

@@ -1,0 +1,22 @@
+.brand_container {
+  padding: 5rem 3rem;
+  display: -ms-grid;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  -ms-grid-columns: (minmax(30rem, 1fr)) [auto-fit];
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 3rem;
+}
+.brand_container div {
+  cursor: pointer;
+}
+
+.head {
+  margin-top: 7rem;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 5rem;
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 2rem;
+}
