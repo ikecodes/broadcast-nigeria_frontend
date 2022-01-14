@@ -1,10 +1,16 @@
 .footer_container {
   margin: 7rem 0 0 0;
-  height: 30rem;
+  background-color: #000;
+}
+.footer_wrapper {
   display: flex;
   padding: 5rem;
   flex-wrap: wrap;
-  gap: 5rem;
+  text-transform: capitalize;
+  gap: 4rem;
+  column-gap: 8rem;
+  align-items: flex-start;
+  /* justify-content: space-around; */
   background-color: #000;
 }
 .footer_container img {
@@ -13,10 +19,43 @@
 }
 .footer_container ul {
   color: #fff;
+  padding: 0;
   list-style: none;
 }
 .footer_container li {
-  font-size: 2rem;
-  text-transform: capitalize;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.footer_container > div {
   margin: 2rem 0;
+  color: #fff;
+}
+.footer_container p {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.footer_newsletter_input {
+  padding: 0.5rem 2rem;
+  font-size: 1rem;
+}
+.footer_newsletter_button {
+  border: none;
+  outline: none;
+  background-color: #fcb700;
+  padding: 0.5rem 2rem;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.footer_icons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.footer_copy {
+  padding: 2rem;
+  text-align: center;
 }

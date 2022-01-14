@@ -1,0 +1,12 @@
+.menu_box ul {
+  list-style: none;
+  padding: 0;
+}
+.menu_box li {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.menu_box li:not(:last-child) {
+  border-bottom: 1px solid #999;
+  padding-bottom: 0.5rem;
+}

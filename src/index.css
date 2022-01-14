@@ -46,3 +46,7 @@ li {
 .pointer {
   cursor: pointer;
 }
+.accordion-button {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
