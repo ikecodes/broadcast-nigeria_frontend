@@ -4,6 +4,7 @@ import { getProducts } from './actions/items';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { Home, Shop, Cart } from './pages';
+import Contact from './pages/Contact';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,8 @@ const App = () => {
       <Routes>
         <Route path='/' exact element={<Home />} />
         <Route path='/shop' exact element={<Shop />} />
-        <Route path='/Cart' exact element={<Cart />} />
+        <Route path='/contact' exact element={<Contact />} />
+        <Route path='/cart' exact element={<Cart />} />
       </Routes>
     </Router>
   );
