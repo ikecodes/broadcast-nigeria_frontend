@@ -9,7 +9,7 @@ const Welcome = () => {
         <Categories />
       </div>
       <div className={classes.box_two}>
-        <h1>Welcome</h1>
+        <h1>Welcome to Broadcaststore</h1>
         <p>
           is Europe's leading supplier of broadcast products. If you are looking
           for FM broadcast transmitters, TV broadcast transmitters, broadcast

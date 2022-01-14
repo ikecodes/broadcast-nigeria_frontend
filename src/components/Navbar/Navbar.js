@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+// import { Dropdown } from 'react-bootstrap';
 import Cartlogo from './Cartlogo/Cartlogo';
 import classes from './Navbar.module.css';
 import Logo2 from '../../assets/logo-placeholder.jpg';
@@ -7,7 +8,7 @@ import { FaSearch } from 'react-icons/fa';
 
 const Navbar = () => {
   const [showAnimation, setShowAnimation] = useState(false);
-
+  // const arr = [1, 2, 3, 4, 5];
   return (
     <div>
       <div
@@ -37,16 +38,16 @@ const Navbar = () => {
             </div>
           </Link>
 
-          <div className='d-flex align-items-center gap-4'>
-            <div className={classes.nav_menu_container}>
-              <Link to='/shop' className={classes.nav_item}>
-                <h4>shop</h4>
-              </Link>
-              <Link to='/contact' className={classes.nav_item}>
-                <h4>contact</h4>
-              </Link>
-            </div>
+          <div className={classes.nav_menu_container}>
+            <Link to='/shop' className={classes.nav_item}>
+              <h4>shop</h4>
+            </Link>
+            <Link to='/contact' className={classes.nav_item}>
+              <h4>contact</h4>
+            </Link>
+
             <FaSearch
+              style={{ marginRight: '1.5rem' }}
               color='#fcb700'
               size={20}
               className='pointer'
@@ -58,6 +59,21 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      {/* <div className={classes.navbar_phonescreen_categories}>
+        {arr.map((item) => (
+          <Dropdown>
+            <Dropdown.Toggle variant='light' id='dropdown-basic'>
+              Dropdown Button
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item href='#/action-1'>Action</Dropdown.Item>
+              <Dropdown.Item href='#/action-2'>Another action</Dropdown.Item>
+              <Dropdown.Item href='#/action-3'>Something else</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        ))}
+      </div> */}
     </div>
   );
 };
