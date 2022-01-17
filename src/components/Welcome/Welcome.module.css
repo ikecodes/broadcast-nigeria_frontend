@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   /* flex-wrap: wrap; */
+  align-items: center;
   background-color: #f9fafd;
   /* padding: 5rem; */
   gap: 5rem;

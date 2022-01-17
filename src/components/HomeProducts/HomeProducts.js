@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Product from './Product/Product';
+import Product from '../../components/Products/Product/Product';
 
 import classes from './HomeProducts.module.css';
 const HomeProducts = () => {

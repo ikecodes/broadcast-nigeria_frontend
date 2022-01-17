@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { Home, Shop, Cart } from './pages';
 import Contact from './pages/Contact';
+import ProductDetails from './pages/ProductDetails';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const App = () => {
         <Route path='/shop' exact element={<Shop />} />
         <Route path='/contact' exact element={<Contact />} />
         <Route path='/cart' exact element={<Cart />} />
+        <Route path='/productDetails' exact element={<ProductDetails />} />
       </Routes>
     </Router>
   );

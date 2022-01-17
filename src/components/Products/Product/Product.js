@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import classes from './Product.module.css';
 import { addToCart } from '../../../actions/items';
@@ -11,7 +12,9 @@ const Product = ({ product: { image, name, price, id } }) => {
         <img src={image} alt='kfk' className={classes.product__image} />
       </div>
       <div className={classes.product__footer}>
-        <h1>{name}</h1>
+        <Link to='/productDetails'>
+          <h1 style={{ color: '#000' }}>{name}</h1>
+        </Link>
         <div className={classes.bottom}>
           <div>
             <button
