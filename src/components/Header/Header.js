@@ -8,21 +8,21 @@ const Header = () => {
   const imgArr = [
     {
       url: Banner1,
-      title: 'radios',
+      title: 'Blackmagic ATEM Constelliation',
       description:
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere ducimus fugit et incidunt ullam sapiente a impedit ipsam sunt.',
+        'powerful switcher in a 2 RU chassis that can easily handle 4K video and supports 8K.',
     },
     {
       url: Banner2,
-      title: 'broadcasters',
+      title: 'Blackmagic Pocket Cinema Camera 4K',
       description:
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere ducimus fugit et incidunt ullam sapiente a impedit ipsam sunt.',
+        'Introducing the next generationhandheld 4K digital film camera!',
     },
     {
       url: Banner3,
-      title: 'audio player',
+      title: 'Blackmagic Web Presenter HD',
       description:
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere ducimus fugit et incidunt ullam sapiente a impedit ipsam sunt.',
+        'Now you can make any professional SDI and HDMI video source appear as a USB webcam for high quality streaming on the internet!.',
     },
   ];
   const getRand = () => Math.ceil(Math.random() * imgArr.length) - 1;

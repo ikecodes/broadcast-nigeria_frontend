@@ -45,7 +45,7 @@ const Cart = () => {
         </div>
       </div>
       <div className={classes.footer}>
-        <h4>TOTAL:${totalPrice}</h4>
+        <h4>TOTAL:₦{totalPrice}</h4>
         <div>
           <button onClick={() => dispatch(clearCart())}>clear cart</button>
           <button>checkout</button>

@@ -24,7 +24,7 @@ const Product = ({ product: { image, name, price, id } }) => {
               Add to Cart
             </button>
           </div>
-          <div className={classes.price}>${price}</div>
+          <div className={classes.price}>₦{price}</div>
         </div>
       </div>
     </div>
