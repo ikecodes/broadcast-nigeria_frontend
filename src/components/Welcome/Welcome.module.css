@@ -1,11 +1,11 @@
 .welcome_container {
   display: flex;
   justify-content: center;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   align-items: center;
   background-color: #f9fafd;
   /* padding: 5rem; */
-  gap: 5rem;
+  /* gap: 5rem; */
 }
 
 .box_one {
@@ -14,7 +14,7 @@
 }
 
 .box_two {
-  flex-basis: 70%;
+  flex-basis: 60%;
   /* background-color: #f6f6f6; */
   text-align: center;
   padding: 2rem;
@@ -25,7 +25,7 @@
   margin: 2rem 0;
 }
 .box_two p {
-  font-weight: 100;
+  font-weight: 500;
   font-size: 2rem;
   margin-bottom: 1rem;
   color: rgb(0, 0, 0, 0.6);
@@ -33,12 +33,10 @@
 
 @media only screen and (max-width: 600px) {
   .box_one {
-    display: none;
+    flex-basis: 100%;
   }
   .box_two {
     flex-basis: 100%;
-    /* background-color: #f6f6f6; */
-    /* text-align: center; */
     padding: 2rem;
   }
 }
