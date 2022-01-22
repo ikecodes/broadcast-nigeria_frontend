@@ -45,6 +45,9 @@ const Navbar = () => {
             <Link to='/contact' className={classes.nav_item}>
               <h4>contact</h4>
             </Link>
+            <Link to='/login' className={classes.nav_item}>
+              <h4>sign in</h4>
+            </Link>
 
             <FaSearch
               style={{ marginRight: '1.5rem' }}
@@ -59,21 +62,6 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      {/* <div className={classes.navbar_phonescreen_categories}>
-        {arr.map((item) => (
-          <Dropdown>
-            <Dropdown.Toggle variant='light' id='dropdown-basic'>
-              Dropdown Button
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu>
-              <Dropdown.Item href='#/action-1'>Action</Dropdown.Item>
-              <Dropdown.Item href='#/action-2'>Another action</Dropdown.Item>
-              <Dropdown.Item href='#/action-3'>Something else</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        ))}
-      </div> */}
     </div>
   );
 };

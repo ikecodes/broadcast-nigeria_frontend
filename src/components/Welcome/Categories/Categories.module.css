@@ -1,12 +1,17 @@
 .menu_box ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 .menu_box li {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
+  cursor: pointer;
 }
-.menu_box li:not(:last-child) {
+.menu_box li:hover {
+  background-color: #ebebeb;
+}
+.menu_box li {
   border-bottom: 1px solid #999;
-  padding-bottom: 0.5rem;
+  padding: 1rem 0.5rem;
 }

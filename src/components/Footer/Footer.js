@@ -8,18 +8,10 @@ const Footer = () => {
       <div className={classes.footer_wrapper}>
         <img src={FooterLogo} alt='Footer logo' />
         <ul>
-          <li>
-            <h1>shop</h1>
-          </li>
-          <li>
-            <h1>contact us</h1>
-          </li>
-          <li>
-            <h1>about</h1>
-          </li>
-          <li>
-            <h1>cart</h1>
-          </li>
+          <li>shop</li>
+          <li>contact us</li>
+          <li>about</li>
+          <li>cart</li>
         </ul>
         <div>
           <div>

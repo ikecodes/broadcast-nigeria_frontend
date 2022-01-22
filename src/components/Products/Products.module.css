@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  padding: 7rem 1rem;
+  padding: 7rem 5rem;
 }
 .products {
   flex-basis: 60%;
@@ -21,6 +21,7 @@
 @media only screen and (max-width: 600px) {
   .box_one {
     flex-basis: 100%;
+    margin-bottom: 4rem;
   }
   .box_two {
     flex-basis: 100%;
