@@ -1,4 +1,5 @@
 .menu_box ul {
+  text-transform: capitalize;
   list-style: none;
   padding: 0;
   margin: 0;
