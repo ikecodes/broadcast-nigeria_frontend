@@ -1,30 +1,34 @@
 import {
   FETCH_PRODUCTS,
+  ADD_PRODUCT,
   ADD_TO_CART,
   CLEAR_CART,
   GET_TOTAL_PRICE,
   INCREASE_PRODUCT,
   DECREASE_PRODUCT,
 } from '../constants/actionTypes';
-import { commerce } from '../lib/commerce';
+import Toast from '../utils/Toast';
+import * as api from '../api/api';
 
-export const getProducts = () => async (dispatch) => {
+export const createProduct = (formdata) => async (dispatch) => {
   try {
-    const { data } = await commerce.products.list();
-
-    const res = data.reduce((acc, cur) => {
-      acc.push({
-        id: cur.id,
-        name: cur.name,
-        price: cur.price.raw,
-        image: cur.media.source,
-        number: 1,
-      });
-      return acc;
-    }, []);
-    dispatch({ type: FETCH_PRODUCTS, payload: res });
+    const {
+      data: { newProduct },
+    } = await api.createProduct(formdata);
+    Toast('successfully saved product', 'success');
+    dispatch({ type: ADD_PRODUCT, payload: newProduct });
   } catch (error) {
-    console.log(error);
+    Toast(error?.response?.data?.message, 'error');
+  }
+};
+export const getAllProducts = () => async (dispatch) => {
+  try {
+    const {
+      data: { products },
+    } = await api.getAllProducts();
+    dispatch({ type: FETCH_PRODUCTS, payload: products });
+  } catch (error) {
+    Toast(error?.response?.data?.message, 'error');
   }
 };
 export const clearCart = () => (dispatch) => dispatch({ type: CLEAR_CART });

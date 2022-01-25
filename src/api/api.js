@@ -14,3 +14,9 @@ API.interceptors.request.use((req) => {
 export const login = (formdata) => API.post('/users/login', formdata);
 export const getMe = () => API.get('/users/me');
 export const signup = (formdata) => API.post('/users/signup', formdata);
+
+/////PRODUCTS
+export const getAllProducts = (formdata) => API.get('/products');
+export const createProduct = (formdata) => API.post('/products', formdata);
+export const getProduct = (id) => API.get(`/products/:id`);
+export const deleteProduct = (id) => API.delete(`/products/:id`);

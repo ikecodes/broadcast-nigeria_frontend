@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
+import { createProduct } from '../../actions/items';
+import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { groups } from '../../constants/data';
 import classes from './AddProductForm.module.css';
 const AddProductForm = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [formdata, setFormdata] = useState({
     name: '',
     category: '',
@@ -12,12 +13,14 @@ const AddProductForm = () => {
     description: '',
     price: '',
   });
+  const [loading, setLoading] = useState(false);
   const [image, setImage] = useState('');
   const [productGroup, setProductGroup] = useState('TRANSMISSION');
   const { categories } = groups.find((item) => item.group === productGroup);
 
   const uploadImage = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const data = new FormData();
     data.append('file', image);
     data.append('upload_preset', 'aeat47rc');
@@ -33,7 +36,9 @@ const AddProductForm = () => {
         ...formdata,
         photo: url,
       });
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
       console.log(error);
     }
   };
@@ -45,7 +50,15 @@ const AddProductForm = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formdata);
+    dispatch(createProduct(formdata));
+    setFormdata({
+      name: '',
+      category: '',
+      photo: '',
+      description: '',
+      price: '',
+    });
+    setImage('');
   };
 
   return (
@@ -100,9 +113,7 @@ const AddProductForm = () => {
             onChange={handleChange}
           >
             {categories.map((category) => (
-              <option key={category} value='me'>
-                {category}
-              </option>
+              <option key={category}>{category}</option>
             ))}
           </select>
         </div>
@@ -113,7 +124,7 @@ const AddProductForm = () => {
             onChange={(e) => setImage(e.target.files[0])}
           ></input>
           <button className={classes.btn} onClick={uploadImage}>
-            upload image
+            {loading ? '•••' : 'upload image'}
           </button>
         </div>
         <img

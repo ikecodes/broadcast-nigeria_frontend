@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getProducts } from './actions/items';
+import { getAllProducts } from './actions/items';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { Home, Shop, Cart } from './pages';
@@ -14,7 +14,7 @@ import GetProducts from './pages/GetProducts';
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getProducts());
+    dispatch(getAllProducts());
   }, [dispatch]);
 
   return (

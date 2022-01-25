@@ -9,7 +9,6 @@ const items = (
 ) => {
   switch (action.type) {
     case AUTH:
-      console.log(action.data);
       localStorage.setItem('token', action.data);
       return {
         ...state,

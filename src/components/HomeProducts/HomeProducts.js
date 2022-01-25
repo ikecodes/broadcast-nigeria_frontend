@@ -10,7 +10,7 @@ const HomeProducts = () => {
       <h1 className={classes.head}>top products</h1>
       <div className={classes.homeproducts_container}>
         {products.map((product) => (
-          <Product key={product.id} product={product} />
+          <Product key={product._id} product={product} />
         ))}
       </div>
     </>
