@@ -1,13 +1,13 @@
 import React from 'react';
 import { Accordion } from 'react-bootstrap';
-import { group } from '../../../constants/data';
+import { groups } from '../../../constants/data';
 import Category from './Category/Category';
 import classes from './Categories.module.css';
 const Categories = () => {
   return (
     <div>
       <Accordion defaultActiveKey='-1'>
-        {group.map((item, index) => (
+        {groups.map((item, index) => (
           <Accordion.Item key={item.group} eventKey={`${index}`}>
             <Accordion.Header>{item.group}:</Accordion.Header>
             <Accordion.Body>

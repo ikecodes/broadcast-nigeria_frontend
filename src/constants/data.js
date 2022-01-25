@@ -1,4 +1,4 @@
-export const group = [
+export const groups = [
   {
     group: 'TRANSMISSION',
     categories: [

@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 5rem;
+  margin: 5rem 0;
+  gap: 5rem;
+}
+
+.container button {
+  outline: none;
+  font-size: 3rem;
+  padding: 1rem 2rem;
+  text-transform: capitalize;
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%);
+  border: 1px solid rgb(0, 0, 0, 0.5);
+}
+
+.head {
+  text-transform: capitalize;
+  margin-top: 3rem;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 5rem;
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 2rem;
+}
