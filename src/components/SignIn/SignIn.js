@@ -1,7 +1,52 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { signup, login } from '../../actions/auth';
 import classes from './SignIn.module.css';
+import Toast from '../../utils/Toast';
 const SignIn = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [modeSignin, setModeSignin] = useState(true);
+  const [formdata, setFormdata] = useState({
+    firstname: '',
+    lastname: '',
+    email: '',
+    phone: '',
+    password: '',
+    passwordConfirm: '',
+  });
+  const changeMode = () => {
+    setModeSignin(true);
+  };
+  const handleChange = (e) => {
+    setFormdata({
+      ...formdata,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!modeSignin && formdata.password !== formdata.passwordConfirm)
+      return Toast('passwords do not match', 'error');
+    if (
+      !modeSignin &&
+      (formdata.firstname === '' ||
+        formdata.lastname === '' ||
+        formdata.phone === '' ||
+        formdata.email === '' ||
+        formdata.password === '' ||
+        formdata.passwordConfirm === '')
+    )
+      return Toast('please fill all fields', 'error');
+    if (modeSignin && (formdata.email === '' || formdata.password === ''))
+      return Toast('please fill all fields', 'error');
+    if (modeSignin) {
+      dispatch(login(formdata, navigate));
+    } else {
+      dispatch(signup(formdata, changeMode));
+    }
+  };
   return (
     <div className={classes.signin_container}>
       <h1 className={classes.head}>{modeSignin ? 'sign in' : 'sign up'}</h1>
@@ -10,17 +55,19 @@ const SignIn = () => {
           <>
             <input
               type='text'
-              name='name'
+              name='firstname'
               placeholder='First Name'
               className={classes.signinform_input}
               required
+              onChange={handleChange}
             />
             <input
               type='text'
-              name='name'
+              name='lastname'
               placeholder='Last Name'
               className={classes.signinform_input}
               required
+              onChange={handleChange}
             />
           </>
         )}
@@ -30,38 +77,42 @@ const SignIn = () => {
           placeholder='Email'
           className={classes.signinform_input}
           required
+          onChange={handleChange}
         />
         {!modeSignin && (
           <div className={classes.signinform_phone}>
             <label>+234</label>
             <input
               type='tel'
-              name='email'
+              name='phone'
               placeholder='Phone'
               required
               style={{ flexBasis: '100%' }}
+              onChange={handleChange}
             />
           </div>
         )}
 
         <input
           type='password'
-          name='email'
+          name='password'
           placeholder='Password'
           className={classes.signinform_input}
           required
+          onChange={handleChange}
         />
         {!modeSignin && (
           <input
             type='password'
-            name='email'
+            name='passwordConfirm'
             placeholder='Confirm Password'
             className={classes.signinform_input}
             required
+            onChange={handleChange}
           />
         )}
 
-        <button className={classes.btn}>
+        <button className={classes.btn} onClick={handleSubmit}>
           {modeSignin ? 'sign in' : 'sign up'}
         </button>
 

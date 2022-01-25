@@ -1,14 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import { Dropdown } from 'react-bootstrap';
 import Cartlogo from './Cartlogo/Cartlogo';
 import classes from './Navbar.module.css';
 import Logo2 from '../../assets/logo-placeholder.jpg';
 import { FaSearch } from 'react-icons/fa';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { getMe, logout } from '../../actions/auth';
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.auth.user);
   const [showAnimation, setShowAnimation] = useState(false);
-  // const arr = [1, 2, 3, 4, 5];
+  useEffect(() => {
+    dispatch(getMe());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location, navigate]);
   return (
     <div>
       <div
@@ -45,9 +54,19 @@ const Navbar = () => {
             <Link to='/contact' className={classes.nav_item}>
               <h4>contact</h4>
             </Link>
-            <Link to='/login' className={classes.nav_item}>
-              <h4>sign in</h4>
-            </Link>
+            {user ? (
+              <Link
+                to='/'
+                className={classes.nav_item}
+                onClick={() => dispatch(logout(navigate))}
+              >
+                <h4>logout</h4>
+              </Link>
+            ) : (
+              <Link to='/login' className={classes.nav_item}>
+                <h4>sign in</h4>
+              </Link>
+            )}
 
             <FaSearch
               style={{ marginRight: '1.5rem' }}
@@ -59,6 +78,12 @@ const Navbar = () => {
             <Link to='/cart'>
               <Cartlogo />
             </Link>
+
+            {user && (
+              <Link to='/' className={classes.nav_item}>
+                <h4 className={classes.username}>Hi, {user?.lastname}</h4>
+              </Link>
+            )}
           </div>
         </div>
       </nav>

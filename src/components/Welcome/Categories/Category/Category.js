@@ -3,7 +3,7 @@ const Category = ({ categories }) => {
   return (
     <ul>
       {categories.map((category) => (
-        <li>{category}</li>
+        <li key={category}>{category}</li>
       ))}
     </ul>
   );

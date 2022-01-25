@@ -1,4 +1,4 @@
-import { SIGNUP, LOGIN } from '../constants/actionTypes';
+import { AUTH, GET_USER, LOGOUT } from '../constants/actionTypes';
 
 const items = (
   state = {
@@ -8,11 +8,25 @@ const items = (
   action
 ) => {
   switch (action.type) {
-    case SIGNUP:
-      return state;
-    case LOGIN:
-      return state;
-
+    case AUTH:
+      console.log(action.data);
+      localStorage.setItem('token', action.data);
+      return {
+        ...state,
+        token: action.data,
+      };
+    case GET_USER:
+      return {
+        ...state,
+        user: action.data,
+      };
+    case LOGOUT:
+      localStorage.clear();
+      return {
+        ...state,
+        token: null,
+        user: null,
+      };
     default:
       return state;
   }
