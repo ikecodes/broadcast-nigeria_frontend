@@ -1,5 +1,5 @@
 import React from 'react';
-import Categories from './Categories/Categories';
+import Categories from '../Categories/Categories';
 import classes from './Welcome.module.css';
 const Welcome = () => {
   return (

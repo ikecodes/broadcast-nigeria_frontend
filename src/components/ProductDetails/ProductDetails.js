@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Categories from '../Welcome/Categories/Categories';
+import Categories from '../Categories/Categories';
 import classes from './ProductDetails.module.css';
 const ProductDetails = () => {
   const location = useLocation();

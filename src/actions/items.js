@@ -1,6 +1,7 @@
 import {
   FETCH_PRODUCTS,
   ADD_PRODUCT,
+  SET_CAT,
   ADD_TO_CART,
   CLEAR_CART,
   GET_TOTAL_PRICE,
@@ -30,6 +31,10 @@ export const getAllProducts = () => async (dispatch) => {
   } catch (error) {
     Toast(error?.response?.data?.message, 'error');
   }
+};
+
+export const setCategory = (category) => (dispatch) => {
+  dispatch({ type: SET_CAT, payload: category });
 };
 export const clearCart = () => (dispatch) => dispatch({ type: CLEAR_CART });
 

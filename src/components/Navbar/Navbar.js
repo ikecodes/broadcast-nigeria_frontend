@@ -7,6 +7,7 @@ import Logo2 from '../../assets/logo-placeholder.jpg';
 import { FaSearch } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { getMe, logout } from '../../actions/auth';
+import { getAllProducts } from '../../actions/items';
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -48,7 +49,11 @@ const Navbar = () => {
           </Link>
 
           <div className={classes.nav_menu_container}>
-            <Link to='/shop' className={classes.nav_item}>
+            <Link
+              to='/shop'
+              className={classes.nav_item}
+              onClick={() => dispatch(getAllProducts())}
+            >
               <h4>shop</h4>
             </Link>
             <Link to='/contact' className={classes.nav_item}>

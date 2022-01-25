@@ -1,6 +1,7 @@
 import {
   FETCH_PRODUCTS,
   ADD_PRODUCT,
+  SET_CAT,
   CLEAR_CART,
   ADD_TO_CART,
   GET_TOTAL_PRICE,
@@ -21,6 +22,13 @@ const items = (
       return { ...state, products: action.payload };
     case ADD_PRODUCT:
       return { ...state, products: [...state.products, action.payload] };
+    case SET_CAT:
+      return {
+        ...state,
+        products: state.products.filter(
+          (product) => product.category === action.payload
+        ),
+      };
     case CLEAR_CART:
       return { ...state, cart: [] };
     case ADD_TO_CART:

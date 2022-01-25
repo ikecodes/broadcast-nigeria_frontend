@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Product from './Product/Product';
-import Categories from '../../components/Welcome/Categories/Categories';
+import Categories from '../Categories/Categories';
 import classes from './Products.module.css';
 
 const Products = () => {

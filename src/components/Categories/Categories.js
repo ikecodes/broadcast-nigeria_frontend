@@ -1,6 +1,6 @@
 import React from 'react';
 import { Accordion } from 'react-bootstrap';
-import { groups } from '../../../constants/data';
+import { groups } from '../../constants/data';
 import Category from './Category/Category';
 import classes from './Categories.module.css';
 const Categories = () => {
