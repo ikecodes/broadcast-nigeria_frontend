@@ -1,19 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { clearCart, getTotalPrice } from '../../actions/items';
+import { useSelector } from 'react-redux';
 import CartItem from './CartItem/CartItem';
 import classes from './Cart.module.css';
 
 const Cart = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getTotalPrice());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  const CartItems = useSelector((state) => state.items.cart);
-  const totalPrice = useSelector((state) => state.items.totalPrice);
+  const CartItems = useSelector((state) => state.cart.carts);
+  const totalPrice = CartItems.reduce((acc, cur) => {
+    acc = acc + cur.product.price * cur.quantity;
+    return acc;
+  }, 0);
 
   const EmptyCart = () => {
     return (
@@ -33,12 +29,13 @@ const Cart = () => {
           ) : (
             CartItems.map((item) => (
               <CartItem
-                key={item.id}
-                id={item.id}
-                name={item.name}
-                image={item.image}
-                number={item.number}
-                price={item.price}
+                key={item.product._id}
+                cartId={item._id}
+                id={item.product._id}
+                name={item.product.name}
+                photo={item.product.photo}
+                number={item.quantity}
+                price={item.product.price}
               />
             ))
           )}
@@ -47,7 +44,6 @@ const Cart = () => {
       <div className={classes.footer}>
         <h4>TOTAL:₦{totalPrice}</h4>
         <div>
-          <button onClick={() => dispatch(clearCart())}>clear cart</button>
           <button>checkout</button>
         </div>
       </div>

@@ -1,31 +1,35 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { FaArrowUp, FaArrowDown, FaTrash } from 'react-icons/fa';
-import { increaseProduct, decreaseProduct } from '../../../actions/items';
+import {
+  increaseProduct,
+  decreaseProduct,
+  deleteCart,
+} from '../../../actions/cart';
 import classes from './CartItem.module.css';
 
-const CartItem = ({ id, name, price, image, number }) => {
+const CartItem = ({ cartId, id, name, price, photo, number }) => {
   const dispatch = useDispatch();
   return (
     <div className={classes.cart__item}>
       <div className={classes.cart__image__wrapper}>
-        <img src={image} alt='Cart' className={classes.cart__image} />
+        <img src={photo} alt='Cart' className={classes.cart__image} />
       </div>
       <div className={classes.cart__content}>
         <h4>{name}</h4>
-        <h5>${price}</h5>
+        <h5>₦ {price}</h5>
       </div>
       <div className={classes.cart__quantity}>
-        <div onClick={() => dispatch(increaseProduct(id, price))}>
+        <div onClick={() => dispatch(increaseProduct(cartId))}>
           <FaArrowUp size={15} />
         </div>
         <h4>{number}</h4>
-        <div onClick={() => dispatch(decreaseProduct(id, price))}>
+        <div onClick={() => dispatch(decreaseProduct(cartId))}>
           <FaArrowDown size={15} />
         </div>
       </div>
       <div className={classes.trash}>
-        <FaTrash />
+        <FaTrash onClick={() => dispatch(deleteCart(cartId))} />
       </div>
     </div>
   );

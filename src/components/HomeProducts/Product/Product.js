@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { createCart } from '../../../actions/cart';
 import classes from './Product.module.css';
-import { addToCart } from '../../../actions/items';
 
 const Product = ({ product: { photo, name, price, _id } }) => {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const Product = ({ product: { photo, name, price, _id } }) => {
           <div>
             <button
               className={classes.btn}
-              onClick={() => dispatch(addToCart(_id))}
+              onClick={() => dispatch(createCart({ prodId: _id }))}
             >
               Add to Cart
             </button>

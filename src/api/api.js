@@ -19,4 +19,9 @@ export const signup = (formdata) => API.post('/users/signup', formdata);
 export const getAllProducts = (formdata) => API.get('/products');
 export const createProduct = (formdata) => API.post('/products', formdata);
 export const getProduct = (id) => API.get(`/products/:id`);
-export const deleteProduct = (id) => API.delete(`/products/:id`);
+export const deleteProduct = (id) => API.delete(`/products/${id}`);
+
+///CARTS
+export const getAllCarts = () => API.get('/carts');
+export const createCart = (formdata) => API.post('/carts', formdata);
+export const deleteCart = (id) => API.delete(`/products/${id}`);

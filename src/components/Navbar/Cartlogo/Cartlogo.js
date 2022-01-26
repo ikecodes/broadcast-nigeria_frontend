@@ -4,7 +4,7 @@ import { FaCartPlus } from 'react-icons/fa';
 import classes from './Cartlogo.module.css';
 
 const Cartlogo = () => {
-  const CartItems = useSelector((state) => state.items.cart);
+  const CartItems = useSelector((state) => state.cart.carts);
   return (
     <div className={classes.container}>
       <FaCartPlus size={20} color='#fcb700' />

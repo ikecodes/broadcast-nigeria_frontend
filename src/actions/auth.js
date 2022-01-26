@@ -1,5 +1,4 @@
 import { AUTH, GET_USER, LOGOUT } from '../constants/actionTypes';
-
 import Toast from '../utils/Toast';
 import * as api from '../api/api';
 

@@ -85,7 +85,11 @@ const Navbar = () => {
             </Link>
 
             {user && (
-              <Link to='/' className={classes.nav_item}>
+              <Link
+                to='/'
+                className={classes.nav_item}
+                style={{ marginLeft: '2rem' }}
+              >
                 <h4 className={classes.username}>Hi, {user?.lastname}</h4>
               </Link>
             )}
