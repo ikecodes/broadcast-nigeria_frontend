@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { getAllProducts } from './actions/items';
 import { getAllCarts } from './actions/cart';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
 import { Home, Shop, Cart } from './pages';
 import Contact from './pages/Contact';
 import ProductDetails from './pages/ProductDetails';
@@ -11,7 +10,8 @@ import Login from './pages/Login';
 import Admin from './pages/Admin';
 import AddProduct from './pages/AddProduct';
 import GetProducts from './pages/GetProducts';
-
+import dotenv from 'dotenv';
+dotenv.config({ path: '../config.env' });
 const App = () => {
   const dispatch = useDispatch();
   const token = localStorage.getItem('token');

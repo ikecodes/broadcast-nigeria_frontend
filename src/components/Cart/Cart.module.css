@@ -41,3 +41,19 @@
   border-width: initial;
   border-style: none;
 }
+
+.btn {
+  display: inline-block;
+  border: none;
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%);
+  padding: 1rem 1.8rem;
+  color: #222;
+  font-weight: 600;
+  font-size: 1.7rem;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+.btn:hover {
+  color: #fff;
+  background-color: #000;
+}

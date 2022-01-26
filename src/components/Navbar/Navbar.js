@@ -93,6 +93,11 @@ const Navbar = () => {
                 <h4 className={classes.username}>Hi, {user?.lastname}</h4>
               </Link>
             )}
+            {user && user.role === 'admin' && (
+              <Link to='/admin' className={classes.nav_item}>
+                <h4 className={classes.username}>admin</h4>
+              </Link>
+            )}
           </div>
         </div>
       </nav>

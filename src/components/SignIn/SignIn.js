@@ -13,6 +13,7 @@ const SignIn = () => {
     lastname: '',
     email: '',
     phone: '',
+    address: '',
     password: '',
     passwordConfirm: '',
   });
@@ -34,6 +35,7 @@ const SignIn = () => {
       (formdata.firstname === '' ||
         formdata.lastname === '' ||
         formdata.phone === '' ||
+        formdata.address === '' ||
         formdata.email === '' ||
         formdata.password === '' ||
         formdata.passwordConfirm === '')
@@ -80,17 +82,26 @@ const SignIn = () => {
           onChange={handleChange}
         />
         {!modeSignin && (
-          <div className={classes.signinform_phone}>
-            <label>+234</label>
-            <input
-              type='tel'
-              name='phone'
-              placeholder='Phone'
-              required
-              style={{ flexBasis: '100%' }}
-              onChange={handleChange}
-            />
-          </div>
+          <input
+            type='tel'
+            name='phone'
+            placeholder='+234'
+            required
+            className={classes.signinform_input}
+            onChange={handleChange}
+          />
+        )}
+
+        {!modeSignin && (
+          <textarea
+            name='address'
+            onChange={handleChange}
+            cols='30'
+            rows='3'
+            placeholder='Enter your Full Address'
+            required
+            className={classes.signinform_input}
+          ></textarea>
         )}
 
         <input
