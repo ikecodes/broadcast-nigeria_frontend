@@ -1,8 +1,9 @@
 import axios from 'axios';
 
-const url = 'http://localhost:5000/api/v1/broadcast';
+// const local_url = 'http://localhost:5000/api/v1/broadcast';
+const remote_url = 'https://broadcastnigeria.herokuapp.com/api/v1/broadcast';
 
-const API = axios.create({ baseURL: url });
+const API = axios.create({ baseURL: remote_url });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem('token')) {
