@@ -1,4 +1,9 @@
-import { FETCH_PRODUCTS, ADD_PRODUCT, SET_CAT } from '../constants/actionTypes';
+import {
+  FETCH_PRODUCTS,
+  ADD_PRODUCT,
+  SET_CAT,
+  LOADING,
+} from '../constants/actionTypes';
 import Toast from '../utils/Toast';
 import * as api from '../api/api';
 
@@ -14,6 +19,7 @@ export const createProduct = (formdata) => async (dispatch) => {
   }
 };
 export const getAllProducts = () => async (dispatch) => {
+  dispatch({ type: LOADING });
   try {
     const {
       data: { products },

@@ -1,7 +1,13 @@
-import { FETCH_PRODUCTS, ADD_PRODUCT, SET_CAT } from '../constants/actionTypes';
+import {
+  FETCH_PRODUCTS,
+  ADD_PRODUCT,
+  SET_CAT,
+  LOADING,
+} from '../constants/actionTypes';
 
 const items = (
   state = {
+    loading: false,
     products: [],
     cart: [],
     totalPrice: 0,
@@ -10,9 +16,21 @@ const items = (
 ) => {
   switch (action.type) {
     case FETCH_PRODUCTS:
-      return { ...state, products: action.payload };
+      return {
+        ...state,
+        products: action.payload,
+        loading: false,
+      };
+    case LOADING:
+      return {
+        ...state,
+        loading: true,
+      };
     case ADD_PRODUCT:
-      return { ...state, products: [...state.products, action.payload] };
+      return {
+        ...state,
+        products: [...state.products, action.payload],
+      };
     case SET_CAT:
       return {
         ...state,

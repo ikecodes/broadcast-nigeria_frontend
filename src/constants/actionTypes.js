@@ -1,6 +1,8 @@
 export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 
+export const LOADING = 'LOADING';
+
 export const SET_CAT = 'SET_CAT';
 
 export const DELETE_CART = 'CLEAR_CART';

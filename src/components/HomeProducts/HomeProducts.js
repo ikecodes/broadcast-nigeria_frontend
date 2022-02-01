@@ -3,15 +3,21 @@ import { useSelector } from 'react-redux';
 import Product from './Product/Product';
 
 import classes from './HomeProducts.module.css';
+import Loader from '../Loader/Loader';
 const HomeProducts = () => {
-  const products = useSelector((state) => state.items.products);
+  const { products, loading } = useSelector((state) => state.items);
   return (
     <>
       <h1 className={classes.head}>top products</h1>
+
       <div className={classes.homeproducts_container}>
-        {products.map((product) => (
-          <Product key={product._id} product={product} />
-        ))}
+        {loading ? (
+          <Loader />
+        ) : (
+          products.map((product) => (
+            <Product key={product._id} product={product} />
+          ))
+        )}
       </div>
     </>
   );
