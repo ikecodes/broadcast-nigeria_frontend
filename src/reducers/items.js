@@ -10,6 +10,7 @@ const items = (
     category: null,
     loading: false,
     products: [],
+    categories: [],
     cart: [],
     totalPrice: 0,
   },
@@ -38,7 +39,7 @@ const items = (
         ...state,
         loading: false,
         category: action.payload,
-        products: state.products.filter(
+        categories: state.products.filter(
           (product) => product.category === action.payload
         ),
       };

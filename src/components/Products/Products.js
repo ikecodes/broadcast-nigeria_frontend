@@ -6,7 +6,9 @@ import Categories from '../Categories/Categories';
 import classes from './Products.module.css';
 
 const Products = () => {
-  const { products, category, loading } = useSelector((state) => state.items);
+  const { products, category, loading, categories } = useSelector(
+    (state) => state.items
+  );
 
   if (loading) return <Loader />;
   return (
@@ -18,11 +20,11 @@ const Products = () => {
       </div>
       <section className={classes.products}>
         <div className={classes.product__center}>
-          {category && products.length > 0 ? (
-            products.map((product) => (
+          {category && categories.length > 0 ? (
+            categories.map((product) => (
               <Product key={product._id} product={product} />
             ))
-          ) : products.length > 0 ? (
+          ) : !category && products.length > 0 ? (
             products.map((product) => (
               <Product key={product._id} product={product} />
             ))
