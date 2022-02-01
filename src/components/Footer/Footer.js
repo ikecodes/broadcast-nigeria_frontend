@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import classes from './Footer.module.css';
 import FooterLogo from '../../assets/logo-placeholder.jpg';
@@ -8,10 +9,15 @@ const Footer = () => {
       <div className={classes.footer_wrapper}>
         <img src={FooterLogo} alt='Footer logo' />
         <ul>
-          <li>shop</li>
-          <li>contact us</li>
-          <li>about</li>
-          <li>cart</li>
+          <Link to='/shop'>
+            <li>shop</li>
+          </Link>
+          <Link to='/contact'>
+            <li>contact us</li>
+          </Link>
+          <Link to='/cart'>
+            <li>cart</li>
+          </Link>
         </ul>
         <div>
           <div>
@@ -21,7 +27,8 @@ const Footer = () => {
           <br />
           <div>
             <h1>tel:</h1>
-            <p>+40440404040</p>
+            <p>+234 816 360 7269</p>
+            <p>084 555020</p>
           </div>
         </div>
 

@@ -7,6 +7,7 @@ import {
 import Toast from '../utils/Toast';
 import * as api from '../api/api';
 
+export const loading = () => async (dispatch) => dispatch({ type: LOADING });
 export const createProduct = (formdata) => async (dispatch) => {
   try {
     const {
@@ -19,7 +20,7 @@ export const createProduct = (formdata) => async (dispatch) => {
   }
 };
 export const getAllProducts = () => async (dispatch) => {
-  dispatch({ type: LOADING });
+  loading();
   try {
     const {
       data: { products },

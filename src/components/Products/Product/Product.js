@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import classes from './Product.module.css';
 import { createCart } from '../../../actions/cart';
 
-const Product = ({ product: { photo, name, price, _id } }) => {
+const Product = ({ product: { photo, name, price, _id, category } }) => {
   const dispatch = useDispatch();
   return (
     <div className={classes.product}>
@@ -15,6 +15,7 @@ const Product = ({ product: { photo, name, price, _id } }) => {
         <Link to={`/productDetails?id=${_id}`}>
           <h1 style={{ color: '#000' }}>{name}</h1>
         </Link>
+        <p className={classes.category}>{category}</p>
         <div className={classes.bottom}>
           <div>
             <button

@@ -1,6 +1,6 @@
 .services_container {
-  margin: 10rem 0;
-  padding: 5rem;
+  margin: 5rem 0;
+  padding: 3rem;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(30rem, 1fr)) [auto-fit];

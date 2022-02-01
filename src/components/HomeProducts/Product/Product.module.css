@@ -43,6 +43,9 @@
   font-size: 1.8rem;
 }
 
+.category {
+  color: #969292;
+}
 .btn {
   display: inline-block;
   border: none;

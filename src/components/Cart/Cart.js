@@ -154,7 +154,7 @@ const Cart = () => {
                   handleFlutterPayment({
                     callback: () => {
                       alert('Paymentment successful');
-                      closePaymentModal(); // this will close the modal programmatically
+                      closePaymentModal();
                     },
                     onClose: () => {},
                   });

@@ -13,12 +13,12 @@ const ContactDetails = () => {
       <Service
         icon={<FaPhone size={50} color='#fcb700' />}
         title='Phone'
-        description='+39 051 00000'
+        description='+234 816 360 7269'
       />
       <Service
         icon={<FaEnvelope size={50} color='#fcb700' />}
         title='Email'
-        description='info@xxxx.com'
+        description='contact@broadcasthubnigeria.com info@broadcathubnigeria.com sales@broadcasthubnigeria.com'
       />
     </div>
   );

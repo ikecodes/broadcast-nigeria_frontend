@@ -7,6 +7,7 @@ import {
 
 const items = (
   state = {
+    category: null,
     loading: false,
     products: [],
     cart: [],
@@ -20,6 +21,7 @@ const items = (
         ...state,
         products: action.payload,
         loading: false,
+        category: null,
       };
     case LOADING:
       return {
@@ -34,6 +36,8 @@ const items = (
     case SET_CAT:
       return {
         ...state,
+        loading: false,
+        category: action.payload,
         products: state.products.filter(
           (product) => product.category === action.payload
         ),
