@@ -46,6 +46,7 @@ const SignIn = () => {
     if (modeSignin) {
       dispatch(login(formdata, navigate));
     } else {
+      // return console.log(formdata);
       dispatch(signup(formdata, changeMode));
     }
   };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createProduct } from '../../actions/items';
 import { useDispatch } from 'react-redux';
-import axios from 'axios';
+// import axios from 'axios';
 import { groups } from '../../constants/data';
 import classes from './AddProductForm.module.css';
 const AddProductForm = () => {
@@ -13,35 +13,22 @@ const AddProductForm = () => {
     description: '',
     price: '',
   });
-  const [loading, setLoading] = useState(false);
-  const [image, setImage] = useState('');
+  const [previewSource, setPreviewSource] = useState(null);
   const [productGroup, setProductGroup] = useState('TRANSMISSION');
   const { categories } = groups.find((item) => item.group === productGroup);
-
-  const uploadImage = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    const data = new FormData();
-    data.append('file', image);
-    data.append('upload_preset', 'aeat47rc');
-    data.append('cloud_name', 'dyptcpxrw');
-    try {
-      const {
-        data: { url },
-      } = await axios.post(
-        'https://api.cloudinary.com/v1_1/dyptcpxrw/image/upload',
-        data
-      );
-      setFormdata({
-        ...formdata,
-        photo: url,
-      });
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-      console.log(error);
-    }
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    previewFile(file);
   };
+
+  const previewFile = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setPreviewSource(reader.result);
+    };
+  };
+
   const handleChange = (e) => {
     setFormdata({
       ...formdata,
@@ -50,15 +37,16 @@ const AddProductForm = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(createProduct(formdata));
+    dispatch(createProduct({ ...formdata, photo: previewSource }));
     setFormdata({
+      ...formdata,
       name: '',
       category: '',
       photo: '',
       description: '',
       price: '',
     });
-    setImage('');
+    setPreviewSource(null);
   };
 
   return (
@@ -70,6 +58,7 @@ const AddProductForm = () => {
           <input
             type='text'
             name='name'
+            value={formdata.name}
             className={classes.addproduct_input}
             onChange={handleChange}
           />
@@ -79,6 +68,7 @@ const AddProductForm = () => {
           <input
             type='text'
             name='price'
+            value={formdata.price}
             className={classes.addproduct_input}
             onChange={handleChange}
           />
@@ -89,6 +79,7 @@ const AddProductForm = () => {
             name='description'
             cols='30'
             rows='3'
+            value={formdata.description}
             className={classes.addproduct_input}
             onChange={handleChange}
           ></textarea>
@@ -109,6 +100,7 @@ const AddProductForm = () => {
           <label>Categories</label>
           <select
             name='category'
+            value={formdata.category}
             className={classes.addproduct_input}
             onChange={handleChange}
           >
@@ -121,17 +113,17 @@ const AddProductForm = () => {
           <input
             type='file'
             className={classes.addproduct_input}
-            onChange={(e) => setImage(e.target.files[0])}
+            onChange={handleFileChange}
           ></input>
-          <button className={classes.btn} onClick={uploadImage}>
-            {loading ? '•••' : 'upload image'}
-          </button>
         </div>
-        <img
-          src={formdata.photo}
-          alt='product img'
-          style={{ height: '10rem', width: '10rem' }}
-        />
+        {previewSource && (
+          <img
+            src={previewSource}
+            alt='product img'
+            style={{ height: '10rem', width: '10rem' }}
+          />
+        )}
+
         <button className={classes.btn} onClick={handleSubmit}>
           save product
         </button>
